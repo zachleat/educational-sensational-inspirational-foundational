@@ -1,0 +1,37 @@
+---json
+{
+  "permalink": "feed.xml",
+  "eleventyExcludeFromCollections": true,
+  "metadata": {
+    "title": "Educational Sensational Inspirational Foundational",
+    "subtitle": "A historical record of foundational web development blog posts.",
+    "language": "en",
+    "url": "https://blue-chough.cloudvent.net/",
+    "author": {
+      "name": "Zach Leatherman",
+      "email": "zach@zachleat.com"
+    }
+  }
+}
+---
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xml:base="{{ metadata.url }}" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>{{ metadata.title }}</title>
+    <link>{{ metadata.url }}</link>
+    <atom:link href="{{ permalink | absoluteUrl(metadata.url) }}" rel="self" type="application/rss+xml" />
+    <description>{{ metadata.subtitle }}</description>
+    <language>{{ metadata.language }}</language>
+    {%- for post in collections.sites | reverse %}
+    {%- set id = post.inputPath | absoluteUrl(metadata.url) %}
+    <item>
+      <title>{{ post.data.title }}</title>
+      <link>{{ post.data.url }}</link>
+      <description></description>
+      <pubDate>{{ post.date | dateToRfc822 }}</pubDate>
+      <dc:creator>{{ post.data.author | normalize }}</dc:creator>
+      <guid>{{ id }}</guid>
+    </item>
+    {%- endfor %}
+  </channel>
+</rss>

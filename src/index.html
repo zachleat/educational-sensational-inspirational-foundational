@@ -1,0 +1,42 @@
+---
+title: Educational Sensational Inspirational Foundational
+layout: layout.liquid
+---
+<header>
+	<h1 class="title editable">
+		<a href="/"><u>Educ</u>ational <u>Sens</u>ational <u>Inspir</u>ational <u>Found</u>ational</a>
+	</h1>
+</header>
+<main>
+	<div class="editable">
+		<p>A historical record of foundational web development blog posts.</p>
+		<p>This collection of ×{{ collections.sites | size }} blog posts and web sites is ordered chronologically. Subscribe to the <a href="/feed.xml">RSS feed</a>.</p>
+	</div>
+	<dl>
+{%- for site in collections.sites %}
+		<dt class="site-description">
+			<a href="{{ site.data.url }}" class="site-link">
+				{%- if not site.data.skip_favicon -%}
+				<img src="https://v1.indieweb-avatar.11ty.dev/{{ site.data.url | url_encode }}/" alt="Favicon of {{ site.data.url }}" width="32" height="32" loading="lazy" class="site-favicon" />
+				{%- else -%}
+				<img />
+				{%- endif -%}
+				<span>{{ site.data.title }}</span>
+			</a>
+		</dt>
+		<dd>
+			<p>
+				{%- if site.data.author %}<span>{{ site.data.author | normalize }}</span>{% endif %}
+				{%- if site.date %} (<time datetime="{{ site.date | toDateFormat }}">{{ site.date | toDateFormat }}</time>){% endif %}
+				<a href="cloudcannon:collections/{{ site.inputPath | replace: './', '' }}" class="cc-editor-link">Edit</a>
+			</p>
+			{%- if not site.data.skip_screenshot %}
+			<a href="{{ site.data.url }}"><img src="https://v1.screenshot.11ty.dev/{{ site.data.url | url_encode }}/opengraph/" alt="Screenshot of {{ site.data.title }}" width="1200" height="630" loading="lazy" class="site-screenshot" /></a>
+			{%- endif %}
+		</dd>
+{%- endfor %}
+	</dl>
+</main>
+<footer>
+	<p class="editable"><em>Site created by <a href="https://www.zachleat.com/">Zach Leatherman</a> and built with <a href="https://www.11ty.dev/">Eleventy</a> and <a href="https://cloudcannon.com/">CloudCannon</a>.</em></p>
+</footer>

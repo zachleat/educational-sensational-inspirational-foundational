@@ -1,0 +1,133 @@
+:root {
+	--primary: #074ad2;
+	--gutter: 1rem;
+	--rhythm: 2em;
+}
+@media (min-width: 37.5em) { /* 600px */
+	:root {
+		--rhythm: 4em;
+	}
+}
+* {
+	box-sizing: border-box;
+}
+html, body {
+	margin: 0;
+	padding: 0;
+}
+html {
+	font-family: system-ui, sans-serif;
+	margin: 0 auto;
+}
+body {
+	display: grid;
+	grid-template-columns: auto var(--gutter) 1fr var(--gutter) auto;
+}
+body > * {
+	grid-column-start: 3;
+	width: 100%;
+	max-width: 50em; /* 800px /16 */
+	margin: 0 auto;
+}
+header {
+	background-color: var(--primary);
+	color: #fff;
+	grid-column: 1/6;
+	max-width: 100%;
+	margin: auto auto var(--rhythm);
+}
+
+:link,
+:visited {
+	color: var(--primary);
+}
+h1, h2, h3, h4, h5 {
+	font-family: Poppins, system-ui, sans-serif;
+}
+p:first-child {
+	margin-top: 0;
+}
+
+.sr-only {
+	position: absolute;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+	clip: rect(1px, 1px, 1px, 1px);
+}
+
+.title {
+	text-align: right;
+	font-size: clamp(1.8em, calc(6vw + 1em), 5em);
+	text-transform: uppercase;
+	line-height: 1;
+	font-weight: 900;
+	letter-spacing: -.05em;
+	padding: 1em var(--gutter);
+	max-width: 50rem; /* 800px /16 */
+	margin: 0 auto;
+}
+.title u {
+	color: #fff;
+	text-decoration-color: rgba(255, 255, 255, .4);
+}
+.title a[href],
+.title a[href]:visited {
+	color: #fff;
+	text-decoration: none;
+}
+
+dl {
+	display: grid;
+	gap: 1em;
+}
+@media (min-width: 37.5em) { /* 600px */
+	dl {
+		grid-template-columns: auto auto;
+	}
+}
+dl {
+	margin: var(--rhythm) 0;
+}
+dd {
+	margin: 0 0 var(--rhythm);
+	padding-bottom: var(--rhythm);
+}
+
+.site-link {
+	font-family: Poppins, system-ui, sans-serif;
+	display: grid;
+	grid-template-columns: 1em auto;
+	gap: .25em;
+	align-items: center;
+}
+.site-description {
+	font-size: 1.5em;
+	font-weight: 500;
+}
+.site-favicon {
+	width: 1em;
+	height: 1em;
+	margin-right: .25em;
+	border-radius: .25em;
+}
+.site-screenshot {
+	display: block;
+	width: 100%;
+	height: auto;
+	border: 3px solid #eee;
+	border-radius: .5em;
+}
+
+/* CloudCannon specific */
+.cc-editor-link {
+	display: none;
+}
+.cms-editor-active .cc-editor-link {
+	display: inline;
+	outline: 2px solid var(--color-sol);
+}
+.cms-editor-active .cc-editor-link:hover,
+.cms-editor-active .cc-editor-link:focus {
+	outline: 2px solid var(--color-cc-blue);
+}
