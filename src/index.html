@@ -3,12 +3,14 @@ title: Educational Sensational Inspirational Foundational
 layout: layout.liquid
 ---
 <header>
+	<!-- <h1 class="title editable"> -->
 	<h1 class="title editable">
 		<a href="/"><u>Educ</u>ational <u>Sens</u>ational <u>Inspir</u>ational <u>Found</u>ational</a>
 	</h1>
 </header>
 <main>
-	<div class="editable">
+	<!-- <div class="editable"> -->
+	<div>
 		<p>A historical record of foundational web development blog posts.</p>
 		<p>This collection of ×{{ collections.sites | size }} blog posts and web sites is ordered chronologically. Subscribe to the <a href="/feed.xml">RSS feed</a>.</p>
 	</div>
@@ -26,7 +28,7 @@ layout: layout.liquid
 			<p class="site-metadata">
 				{%- if site.data.author %}<span>{{ site.data.author | normalize }}</span>{% endif %}
 				{%- if site.date %} (<time datetime="{{ site.date | toDateFormat }}">{{ site.date | toDateFormat }}</time>){% endif %}
-				<a href="cloudcannon:collections/{{ site.inputPath | replace: './', '' }}" class="cc-editor-link">Edit</a>
+				<!-- <a href="cloudcannon:collections/{{ site.inputPath | replace: './', '' }}" class="cc-editor-link">Edit</a> -->
 			</p>
 		</dt>
 		<dd>
@@ -38,5 +40,8 @@ layout: layout.liquid
 	</dl>
 </main>
 <footer>
-	<p class="editable"><em>Site created by <a href="https://www.zachleat.com/">Zach Leatherman</a> and built with <a href="https://www.11ty.dev/">Eleventy</a> and <a href="https://cloudcannon.com/">CloudCannon</a>.</em></p>
+	<!-- <p class="editable"> -->
+	<p>
+		<em>Site created by <a href="https://www.zachleat.com/">Zach Leatherman</a> and built with <a href="https://www.11ty.dev/">Eleventy</a> and <a href="https://cloudcannon.com/">CloudCannon</a>.</em>
+	</p>
 </footer>
