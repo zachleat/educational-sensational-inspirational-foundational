@@ -14,7 +14,7 @@ layout: layout.liquid
 	</div>
 	<dl>
 {%- for site in collections.sites %}
-		<dt class="site-description">
+		<dt>
 			<a href="{{ site.data.url }}" class="site-link">
 				{%- if not site.data.skip_favicon -%}
 				<img src="https://v1.indieweb-avatar.11ty.dev/{{ site.data.url | url_encode }}/" alt="Favicon of {{ site.data.url }}" width="32" height="32" loading="lazy" class="site-favicon" />
@@ -23,13 +23,13 @@ layout: layout.liquid
 				{%- endif -%}
 				<span>{{ site.data.title }}</span>
 			</a>
-		</dt>
-		<dd>
-			<p>
+			<p class="site-metadata">
 				{%- if site.data.author %}<span>{{ site.data.author | normalize }}</span>{% endif %}
 				{%- if site.date %} (<time datetime="{{ site.date | toDateFormat }}">{{ site.date | toDateFormat }}</time>){% endif %}
 				<a href="cloudcannon:collections/{{ site.inputPath | replace: './', '' }}" class="cc-editor-link">Edit</a>
 			</p>
+		</dt>
+		<dd>
 			{%- if not site.data.skip_screenshot %}
 			<a href="{{ site.data.url }}"><img src="https://v1.screenshot.11ty.dev/{{ site.data.url | url_encode }}/opengraph/" alt="Screenshot of {{ site.data.title }}" width="1200" height="630" loading="lazy" class="site-screenshot" /></a>
 			{%- endif %}

@@ -100,8 +100,6 @@ dd {
 	grid-template-columns: 1em auto;
 	gap: .25em;
 	align-items: center;
-}
-.site-description {
 	font-size: 1.5em;
 	font-weight: 500;
 }
@@ -117,6 +115,10 @@ dd {
 	height: auto;
 	border: 3px solid #eee;
 	border-radius: .5em;
+}
+.site-metadata {
+	margin: 0;
+	margin-left: 1.875em;
 }
 
 /* CloudCannon specific */
