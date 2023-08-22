@@ -6,7 +6,7 @@ _inputs:
   layout:
     hidden: true
 
- collections_config:
+collections_config:
   sites:
     output: false
 #     icon: link
