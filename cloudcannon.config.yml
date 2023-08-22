@@ -1,22 +1,20 @@
+_inputs:
+  date:
+    type: date
+    label: Published on
+    comment: The blog post or site was published on this day.
+  layout:
+    hidden: true
 
 # collections_config:
 #   sites:
 #     path: sites
-#     disable_add_folder: true
 #     icon: link
 #     preview:
 #       gallery:
 #         text: " "
+#     _enabled_editors:
+#       - data
 #     schemas:
 #       default:
 #         path: src/_schemas/site.md
-#     _enabled_editors:
-#       - data
-# _inputs:
-#   date:
-#     type: date
-#     label: Published on
-#     comment: The blog post or site was published on this day.
-#   layout:
-#     hidden: true
-
