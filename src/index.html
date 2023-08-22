@@ -26,7 +26,7 @@ layout: layout.liquid
 			<p class="site-metadata">
 				{%- if site.data.author %}<span>{{ site.data.author | normalize }}</span>{% endif %}
 				{%- if site.date %} (<time datetime="{{ site.date | toDateFormat }}">{{ site.date | toDateFormat }}</time>){% endif %}
-				<!-- <a href="cloudcannon:collections/{{ site.inputPath | replace: './', '' }}" class="cc-editor-link">Edit</a> -->
+				<a href="cloudcannon:collections/{{ site.inputPath | replace: './', '' }}" class="cc-editor-link">Edit</a>
 			</p>
 		</dt>
 		<dd>
