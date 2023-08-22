@@ -6,9 +6,8 @@ _inputs:
   layout:
     hidden: true
 
-collections_config:
-  sites:
-    output: false
+# collections_config:
+#   sites:
 #     icon: link
 #     preview:
 #       gallery:
