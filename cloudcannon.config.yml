@@ -14,6 +14,6 @@ collections_config:
         text: " "
     _enabled_editors:
       - data
-#     schemas:
-#       default:
-#         path: src/_schemas/site.md
+    schemas:
+      default:
+        path: src/_schemas/site.md
