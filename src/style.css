@@ -1,5 +1,6 @@
 :root {
 	--primary: #074ad2;
+	--primary-light: #c3d4fa;
 	--gutter: 1rem;
 	--rhythm: 2em;
 }
@@ -36,6 +37,14 @@ header {
 	max-width: 100%;
 	margin: auto auto var(--rhythm);
 }
+footer {
+	display: block;
+	padding: 1em;
+	border: .1em solid var(--primary);
+	background-color: var(--primary-light);
+	border-radius: .5em;
+	margin-bottom: var(--rhythm);
+}
 
 :link,
 :visited {
@@ -46,6 +55,9 @@ h1, h2, h3, h4, h5 {
 }
 p:first-child {
 	margin-top: 0;
+}
+p:last-child {
+	margin-bottom: 0;
 }
 
 .sr-only {
@@ -119,6 +131,11 @@ dd {
 .site-metadata {
 	margin: 0;
 	margin-left: 1.875em;
+}
+
+/* Lite-YouTube */
+lite-youtube[videoid] {
+	max-width: 100%;
 }
 
 /* CloudCannon specific */
