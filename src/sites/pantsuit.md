@@ -1,8 +1,9 @@
 ---
-title: "Pantsuit: The Hillary Clinton UI pattern library"
-url: https://medium.com/git-out-the-vote/pantsuit-the-hillary-clinton-ui-pattern-library-238e9bf06b54
-date: "2016-08-31"
+_schema: default
+url: https://mina.codes/posts/pantsuit-the-hillary-clinton-ui-pattern-library/
+title: 'Pantsuit: The Hillary Clinton UI pattern library'
 author: Mina Markham
+date: 2016-08-31T00:00:00Z
 skip_screenshot: true
 skip_favicon: true
 ---
