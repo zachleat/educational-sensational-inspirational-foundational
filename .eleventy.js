@@ -4,6 +4,7 @@ module.exports = function(eleventyConfig) {
 	eleventyConfig.ignores.add("src/_schemas/*");
 
 	eleventyConfig.addPassthroughCopy("./src/style.css");
+	eleventyConfig.addPassthroughCopy("./src/logo.png");
 
 	eleventyConfig.addPlugin(pluginRss);
 

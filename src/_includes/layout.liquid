@@ -6,13 +6,27 @@ title: Educational Sensational Inspirational Foundational
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta name="description" content="{{ pkg.description }}">
+		<meta name="description" content="{{ metadata.subtitle }}">
+
 		<title>{{ title }}</title>
+
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link rel="stylesheet" href="/style.css">
 		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;900&display=swap" rel="stylesheet">
+
 		<link rel="alternate" href="/feed.xml" title="{{ title }} Feed" type="application/rss+xml">
+
+		<meta property="og:title" content="{{ title }}">
+		<meta property="og:type" content="website">
+		<meta property="og:description" content="{{ metadata.subtitle }}">
+		<meta property="og:image" content="https://v1.screenshot.11ty.dev/{{ metadata.url | url_encode }}/opengraph/">
+		<meta property="og:image:alt" content="A screenshot of the web site at {{ metadata.url }}" />
+		<meta property="og:url" content="{{ metadata.url }}">
+
+		<link rel="icon" href="/logo.png" sizes="500x500">
+		<link rel="shortcut icon" sizes="500x500" href=“/logo.png">
+		<link rel="apple-touch-icon" href="/logo.png" sizes="500x500">
 	</head>
 	<body>
 		{{ content }}
