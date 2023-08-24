@@ -1,3 +1,4 @@
+const path = require("node:path");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const Image = require("@11ty/eleventy-img");
 
@@ -48,7 +49,7 @@ module.exports = function(eleventyConfig) {
 	});
 
 	eleventyConfig.addShortcode("embedFavicon", async function(filepath, title) {
-		let metadata = await Image(filepath, {
+		let metadata = await Image(path.join("./src/", filepath), {
 			widths: [64],
 			formats: ["png"],
 			outputDir: "./_site/img/",
