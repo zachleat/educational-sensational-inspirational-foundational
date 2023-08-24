@@ -18,10 +18,8 @@ layout: layout.liquid
 			<a href="{{ site.data.url }}" class="site-link">
 				{%- if site.data.favicon_override_image_path %}
 				{% embedFavicon site.data.favicon_override_image_path, site.data.title %}
-				{%- elsif not site.data.skip_favicon -%}
-				<img src="https://v1.indieweb-avatar.11ty.dev/{{ site.data.url | url_encode }}/" alt="Favicon of {{ site.data.url }}" width="32" height="32" loading="lazy" class="site-favicon">
 				{%- else -%}
-				<img alt="">
+				<img src="https://v1.indieweb-avatar.11ty.dev/{{ site.data.url | url_encode }}/" alt="Favicon of {{ site.data.url }}" width="32" height="32" loading="lazy" class="site-favicon">
 				{%- endif -%}
 				<span>{{ site.data.title }}</span>
 			</a>

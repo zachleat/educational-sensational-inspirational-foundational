@@ -5,5 +5,4 @@ title: Progressive Enhancement is Still Important
 author: Jake Archibald
 date: 2013-07-03T00:00:00Z
 skip_screenshot: false
-skip_favicon: false
 ---

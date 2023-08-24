@@ -5,5 +5,4 @@ title: Researching the Performance costs of JavaScript MVC Frameworks
 author: John Bender
 date: 2014-12-12T00:00:00Z
 skip_screenshot: false
-skip_favicon: false
 ---

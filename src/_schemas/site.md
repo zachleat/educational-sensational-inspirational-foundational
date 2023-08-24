@@ -4,6 +4,5 @@ title: ""
 author: ""
 date: null
 skip_screenshot: false
-skip_favicon: false
 favicon_override_image_path: ""
 ---
