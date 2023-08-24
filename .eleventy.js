@@ -30,7 +30,7 @@ module.exports = function(eleventyConfig) {
 		let remoteUrl = `https://v1.screenshot.11ty.dev/${encodeURIComponent(url)}/opengraph/`
 		let metadata = await Image(remoteUrl, {
 			widths: [800],
-			formats: ["webp", "jpeg"],
+			formats: ["avif", "webp", "jpeg"],
 			outputDir: "./_site/screenshots/",
 			urlPath: "/screenshots/",
 		});
