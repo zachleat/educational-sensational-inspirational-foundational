@@ -5,5 +5,5 @@ title: HTML Design Principles
 author: ''
 date: 2007-11-26T00:00:00Z
 skip_screenshot: false
-favicon_override_image_path: /img/w3c-logo.svg
+favicon_override_image_path: /uploads/w3c-logo.svg
 ---
