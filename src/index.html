@@ -17,9 +17,9 @@ layout: layout.liquid
 		<dt>
 			<a href="{{ site.data.url }}" class="site-link">
 				{%- if not site.data.skip_favicon -%}
-				<img src="https://v1.indieweb-avatar.11ty.dev/{{ site.data.url | url_encode }}/" alt="Favicon of {{ site.data.url }}" width="32" height="32" loading="lazy" class="site-favicon" />
+				<img src="https://v1.indieweb-avatar.11ty.dev/{{ site.data.url | url_encode }}/" alt="Favicon of {{ site.data.url }}" width="32" height="32" loading="lazy" class="site-favicon">
 				{%- else -%}
-				<img />
+				<img alt="">
 				{%- endif -%}
 				<span>{{ site.data.title }}</span>
 			</a>
