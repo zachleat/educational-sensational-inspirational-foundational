@@ -1,8 +1,9 @@
 ---
-title: HTML Design Principles
+_schema: default
 url: https://www.w3.org/TR/html-design-principles/
-date: "2007-11-26"
-author:
-  - Anne van Kesteren
-  - Maciej Stachowiak
+title: HTML Design Principles
+author: ''
+date: 2007-11-26T00:00:00Z
+skip_screenshot: false
+favicon_override_image_path: /img/w3c-logo.svg
 ---
