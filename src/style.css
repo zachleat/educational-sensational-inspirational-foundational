@@ -117,7 +117,7 @@ dd {
 }
 .site-favicon {
 	width: 1em;
-	height: 1em;
+	height: auto;
 	margin-right: .25em;
 	border-radius: .25em;
 }

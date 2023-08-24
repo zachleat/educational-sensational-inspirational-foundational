@@ -47,6 +47,25 @@ module.exports = function(eleventyConfig) {
 		return Image.generateHTML(metadata, imageAttributes);
 	});
 
+	eleventyConfig.addShortcode("embedFavicon", async function(filepath, title) {
+		let metadata = await Image(filepath, {
+			widths: [64],
+			formats: ["png"],
+			outputDir: "./_site/img/",
+			urlPath: "/img/",
+		});
+
+		let imageAttributes = {
+			alt: `Favicon for ${title}`,
+			class: "site-favicon",
+			loading: "lazy",
+			decoding: "async",
+		};
+
+		// You bet we throw an error on a missing alt (alt="" works okay)
+		return Image.generateHTML(metadata, imageAttributes);
+	});
+
 	eleventyConfig.addShortcode("embedYouTube", function(slug, label) {
 		let fallback = `https://i.ytimg.com/vi/${slug}/maxresdefault.jpg`;
 
