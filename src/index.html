@@ -33,7 +33,7 @@ layout: layout.liquid
 		</dt>
 		<dd>
 			{%- if not site.data.skip_screenshot %}
-			<a href="{{ site.data.url }}">{% embedScreenshot site.data.url, site.data.title %}</a>
+			<a href="{{ site.data.url }}">{% embedScreenshot site.data.url, site.data.title, forloop.first %}</a>
 			{%- endif %}
 		</dd>
 {%- endfor %}

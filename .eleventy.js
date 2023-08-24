@@ -26,7 +26,7 @@ module.exports = function(eleventyConfig) {
 		return date.getFullYear();
 	});
 
-	eleventyConfig.addShortcode("embedScreenshot", async function(url, title) {
+	eleventyConfig.addShortcode("embedScreenshot", async function(url, title, isLCP) {
 		let remoteUrl = `https://v1.screenshot.11ty.dev/${encodeURIComponent(url)}/opengraph/`
 		let metadata = await Image(remoteUrl, {
 			widths: [800],
@@ -39,7 +39,7 @@ module.exports = function(eleventyConfig) {
 			alt: `Screenshot of ${title}`,
 			class: "site-screenshot",
 			sizes: "(min-width: 37.5em) 50vw, 100vw",
-			loading: "lazy",
+			loading: isLCP ? "eager" : "lazy",
 			decoding: "async",
 		};
 
