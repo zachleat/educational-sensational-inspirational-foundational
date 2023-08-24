@@ -8,7 +8,6 @@ module.exports = function(eleventyConfig) {
 	eleventyConfig.ignores.add("src/_schemas/*");
 
 	eleventyConfig.addPassthroughCopy("./src/*.{css,png}");
-	eleventyConfig.addPassthroughCopy("./src/screenshots/*");
 
 	// is-land loaded YouTube embed
 	eleventyConfig.addPassthroughCopy({
