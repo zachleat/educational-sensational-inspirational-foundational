@@ -35,7 +35,7 @@ module.exports = function(eleventyConfig) {
 		let metadata = await Image(remoteUrl, {
 			widths: [800],
 			formats: ["avif", "webp", "jpeg"],
-			outputDir: "./src/screenshots/",
+			outputDir: "./_site/screenshots/",
 			urlPath: "/screenshots/",
 		});
 
