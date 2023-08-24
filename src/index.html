@@ -31,7 +31,7 @@ layout: layout.liquid
 		</dt>
 		<dd>
 			{%- if not site.data.skip_screenshot %}
-			<a href="{{ site.data.url }}"><img src="https://v1.screenshot.11ty.dev/{{ site.data.url | url_encode }}/opengraph/" alt="Screenshot of {{ site.data.title }}" width="1200" height="630" loading="lazy" class="site-screenshot" /></a>
+			<a href="{{ site.data.url }}">{% embedScreenshot site.data.url, site.data.title %}</a>
 			{%- endif %}
 		</dd>
 {%- endfor %}

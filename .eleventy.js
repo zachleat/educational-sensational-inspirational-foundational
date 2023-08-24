@@ -1,9 +1,16 @@
 const pluginRss = require("@11ty/eleventy-plugin-rss");
+const Image = require("@11ty/eleventy-img");
 
 module.exports = function(eleventyConfig) {
+	// Emulated passthrough copy
+	eleventyConfig.setServerPassthroughCopyBehavior("passthrough");
+
 	eleventyConfig.ignores.add("src/_schemas/*");
 
 	eleventyConfig.addPassthroughCopy("./src/*.{css,png}");
+	eleventyConfig.addPassthroughCopy("./src/screenshots/*");
+
+	// is-land loaded YouTube embed
 	eleventyConfig.addPassthroughCopy({
 		"node_modules/@11ty/is-land/is-land.js": "public/is-land.js",
 		"node_modules/lite-youtube-embed/src/lite-yt-embed.js": "public/lite-yt-embed.js",
@@ -21,6 +28,27 @@ module.exports = function(eleventyConfig) {
 
 	eleventyConfig.addFilter("toDateFormat", date => {
 		return date.getFullYear();
+	});
+
+	eleventyConfig.addShortcode("embedScreenshot", async function(url, title) {
+		let remoteUrl = `https://v1.screenshot.11ty.dev/${encodeURIComponent(url)}/opengraph/`
+		let metadata = await Image(remoteUrl, {
+			widths: [800],
+			formats: ["avif", "webp", "jpeg"],
+			outputDir: "./src/screenshots/",
+			urlPath: "/screenshots/",
+		});
+
+		let imageAttributes = {
+			alt: `Screenshot of ${title}`,
+			class: "site-screenshot",
+			sizes: "(min-width: 37.5em) 50vw, 100vw",
+			loading: "lazy",
+			decoding: "async",
+		};
+
+		// You bet we throw an error on a missing alt (alt="" works okay)
+		return Image.generateHTML(metadata, imageAttributes);
 	});
 
 	eleventyConfig.addShortcode("embedYouTube", function(slug, label) {
