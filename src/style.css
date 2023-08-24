@@ -23,6 +23,7 @@ html {
 body {
 	display: grid;
 	grid-template-columns: auto var(--gutter) 1fr var(--gutter) auto;
+	overflow-y: scroll;
 }
 body > * {
 	grid-column-start: 3;
