@@ -6,5 +6,5 @@ author: Tim Berners-Lee
 date: 1998-01-01T00:00:00Z
 skip_screenshot: false
 skip_favicon: false
-favicon_override: "w3c-logo.svg"
+favicon_override_image_path: "w3c-logo.svg"
 ---

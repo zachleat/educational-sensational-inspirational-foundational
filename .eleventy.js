@@ -29,7 +29,7 @@ module.exports = function(eleventyConfig) {
 	eleventyConfig.addShortcode("embedScreenshot", async function(url, title, isLCP) {
 		let remoteUrl = `https://v1.screenshot.11ty.dev/${encodeURIComponent(url)}/opengraph/`
 		let metadata = await Image(remoteUrl, {
-			widths: [400,800],
+			widths: [400, 800],
 			formats: ["webp", "jpeg"],
 			outputDir: "./_site/screenshots/",
 			urlPath: "/screenshots/",

@@ -16,7 +16,7 @@ layout: layout.liquid
 {%- for site in collections.sites %}
 		<dt>
 			<a href="{{ site.data.url }}" class="site-link">
-				{%- if site.data.favicon_override %}
+				{%- if site.data.favicon_override_image_path %}
 				{% embedFavicon "./src/img/w3c-logo.svg", site.data.title %}
 				{%- elsif not site.data.skip_favicon -%}
 				<img src="https://v1.indieweb-avatar.11ty.dev/{{ site.data.url | url_encode }}/" alt="Favicon of {{ site.data.url }}" width="32" height="32" loading="lazy" class="site-favicon">
