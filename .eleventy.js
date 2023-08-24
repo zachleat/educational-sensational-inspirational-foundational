@@ -2,9 +2,6 @@ const pluginRss = require("@11ty/eleventy-plugin-rss");
 const Image = require("@11ty/eleventy-img");
 
 module.exports = function(eleventyConfig) {
-	// Emulated passthrough copy
-	eleventyConfig.setServerPassthroughCopyBehavior("passthrough");
-
 	eleventyConfig.ignores.add("src/_schemas/*");
 
 	eleventyConfig.addPassthroughCopy("./src/*.{css,png}");
@@ -33,7 +30,7 @@ module.exports = function(eleventyConfig) {
 		let remoteUrl = `https://v1.screenshot.11ty.dev/${encodeURIComponent(url)}/opengraph/`
 		let metadata = await Image(remoteUrl, {
 			widths: [800],
-			formats: ["avif", "webp", "jpeg"],
+			formats: ["webp", "jpeg"],
 			outputDir: "./_site/screenshots/",
 			urlPath: "/screenshots/",
 		});
