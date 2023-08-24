@@ -41,6 +41,7 @@ module.exports = function(eleventyConfig) {
 			class: "site-screenshot",
 			sizes: "(min-width: 37.5em) 50vw, 100vw",
 			loading: isLCP ? "eager" : "lazy",
+			fetchpriority: isLCP ? "high" : "auto",
 			decoding: "async",
 		};
 
