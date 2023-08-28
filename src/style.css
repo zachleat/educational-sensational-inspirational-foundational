@@ -112,15 +112,23 @@ dd {
 	display: grid;
 	grid-template-columns: 1em auto;
 	gap: .25em;
-	align-items: center;
+	align-items: flex-start;
 	font-size: 1.5em;
 	font-weight: 500;
 }
 .site-favicon {
 	width: 1em;
 	height: auto;
-	margin-right: .25em;
+	margin-top: .2em;
+	margin-right: .2em;
 	border-radius: .25em;
+}
+@supports (object-fit: contain) {
+	.site-favicon {
+		width: 1em;
+		height: 1em;
+		object-fit: contain;
+	}
 }
 .site-screenshot {
 	display: block;
