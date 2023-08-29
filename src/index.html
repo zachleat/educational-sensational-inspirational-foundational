@@ -9,8 +9,8 @@ layout: layout.liquid
 </header>
 <main>
 	<div class="editable">
-		<p class="present-before-paste">A historical record of foundational web development blog posts. <a rel="noreferrer" href="https://www.youtube.com/watch?v=yXcxvBJuULU">Watch <em>From Zero to CMS in 2 Minutes with CloudCannon and Eleventy</em> (on YouTube)</a> to learn how this web site was made.</p>
-		<p class="present-before-paste">This collection of ×{{ collections.sites | size }} blog posts and web sites is ordered chronologically. Subscribe to the <a href="/feed.xml">RSS feed</a>.</p>
+		<p>A historical record of foundational web development blog posts. <a rel="noreferrer" href="https://www.youtube.com/watch?v=yXcxvBJuULU">Watch <em>From Zero to CMS in 2 Minutes with CloudCannon and Eleventy</em> (on YouTube)</a> to learn how this web site was made.</p>
+		<p>This collection of ×{{ collections.sites | size }} blog posts and web sites is ordered chronologically. Subscribe to the <a href="/feed.xml">RSS feed</a>.</p>
 	</div>
 	<dl>
 {%- for site in collections.sites %}
