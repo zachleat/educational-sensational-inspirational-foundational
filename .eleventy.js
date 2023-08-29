@@ -16,6 +16,10 @@ module.exports = function(eleventyConfig) {
 
 	eleventyConfig.addPlugin(pluginRss);
 
+	eleventyConfig.setLiquidOptions({
+		jsTruthy: true
+	});
+
 	eleventyConfig.addFilter("normalize", (subject, delimiter) => {
 		if(Array.isArray(subject)) {
 			return subject.join(delimiter || ", ");
