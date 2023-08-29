@@ -75,10 +75,10 @@ module.exports = function(eleventyConfig) {
 	<template data-island="once">
 		<link rel="stylesheet" href="/public/lite-yt-embed.css">
 		<script src="/public/lite-yt-embed.js"></script>
+		<lite-youtube videoid="${slug}" playlabel="Play${label ? `: ${label}` : ""}" style="background-image:url('${fallback}')">
+			<a href="https://youtube.com/watch?v=${slug}" class="lty-playbtn" title="Play Video"><span class="lyt-visually-hidden">Play Video${label ? `: ${label}` : ""}</span></a>
+		</lite-youtube>
 	</template>
-	<lite-youtube videoid="${slug}" playlabel="Play${label ? `: ${label}` : ""}" style="background-image:url('${fallback}')">
-		<a href="https://youtube.com/watch?v=${slug}" class="lty-playbtn" title="Play Video"><span class="lyt-visually-hidden">Play Video${label ? `: ${label}` : ""}</span></a>
-	</lite-youtube>
 </is-land>`;
 	});
 
