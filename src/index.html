@@ -1,6 +1,11 @@
 ---
 title: Educational Sensational Inspirational Foundational
 layout: layout.liquid
+video:
+  url: https://www.youtube.com/watch?v=yXcxvBJuULU
+  title: From Zero to CMS in 2 Minutes with CloudCannon and Eleventy
+  poster: https://i.ytimg.com/vi/yXcxvBJuULU/maxresdefault.jpg
+  show_every: 15
 ---
 <header>
 	<h1 class="title editable">
@@ -9,7 +14,7 @@ layout: layout.liquid
 </header>
 <main>
 	<div class="editable">
-		<p>A historical record of foundational web development blog posts. <a rel="noreferrer" href="https://www.youtube.com/watch?v=yXcxvBJuULU">Watch <em>From Zero to CMS in 2 Minutes with CloudCannon and Eleventy</em> (on YouTube)</a> to learn how this web site was made.</p>
+		<p>A historical record of foundational web development blog posts. <a rel="noreferrer" href="https://www.youtube.com/watch?v=yXcxvBJuULU"><img src="https://v1.indieweb-avatar.11ty.dev/{{ video.url | url_encode }}/" alt="Favicon of {{ video.url }}" width="32" height="32" loading="lazy" class="favicon">Watch <em>From Zero to CMS in 2 Minutes with CloudCannon and Eleventy</em> (on YouTube)</a> to learn how this web site was made.</p>
 		<p>This collection of ×{{ collections.sites | size }} blog posts and web sites is ordered chronologically. Subscribe to the <a href="/feed.xml">RSS feed</a>.</p>
 	</div>
 	<dl>
@@ -19,7 +24,7 @@ layout: layout.liquid
 				{%- if site.data.favicon_override_image_path %}
 				{% embedFavicon site.data.favicon_override_image_path, site.data.title %}
 				{%- else -%}
-				<img src="https://v1.indieweb-avatar.11ty.dev/{{ site.data.url | url_encode }}/" alt="Favicon of {{ site.data.url }}" width="32" height="32" loading="lazy" class="site-favicon" />
+				<img src="https://v1.indieweb-avatar.11ty.dev/{{ site.data.url | url_encode }}/" alt="Favicon of {{ site.data.url }}" width="32" height="32" loading="lazy" class="site-favicon">
 				{%- endif -%}
 				<span>{{ site.data.title }}</span>
 			</a>
@@ -29,15 +34,27 @@ layout: layout.liquid
 				<a href="cloudcannon:collections/{{ site.inputPath | replace: './', '' }}" class="cc-editor-link">Edit</a>
 			</p>
 		</dt>
-		<dd>
+		<dd class="site-screenshot--skew">
 			{%- if not site.data.skip_screenshot %}
 			<a href="{{ site.data.url }}">{% embedScreenshot site.data.url, site.data.title, forloop.first %}</a>
 			{%- endif %}
 		</dd>
+{%- assign showVideo = forloop.index | modulo: video.show_every %}
+{%- if showVideo == 0 %}
+		<div class="site-promo">
+			<a href="{{ video.url }}" class="site-promo-link callout">
+				<span class="site-link">
+					<img src="https://v1.indieweb-avatar.11ty.dev/{{ video.url | url_encode }}/" alt="Favicon of {{ video.url }}" width="32" height="32" loading="lazy" class="site-favicon">
+					<span>Learn how this was built: <em>{{ video.title }}</em></span>
+				</span>
+				{% embedScreenshot video.poster, video.title %}
+			</a>
+		</div>
+{%- endif %}
 {%- endfor %}
 	</dl>
 </main>
-<footer>
+<footer class="callout">
 	<p class="editable">
 		<em>This web site was created by <a href="https://www.zachleat.com/">Zach Leatherman</a> and built with <a href="https://www.11ty.dev/">Eleventy</a> and <a href="https://cloudcannon.com/">CloudCannon</a>. Check out the <a href="https://github.com/zachleat/educational-sensational-inspirational-foundational">source code for this project on GitHub</a> or watch <a href="https://www.youtube.com/watch?v=yXcxvBJuULU">the making-of video on YouTube</a>. Feel free to head over to <a href="https://fediverse.zachleat.com/@zachleat/110855134082623101">the Mastodon post that started it all</a>.</em>
 	</p>
