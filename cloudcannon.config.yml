@@ -9,14 +9,16 @@ _inputs:
     type: multiselect
     options:
       allow_create: true
+      empty_type: array
       values:
-        - HTML
+        - Accessibility
         - CSS
+        - HTML
         - JavaScript
         - Performance
-        - Accessibility
         - Progressive Enhancement
         - Responsive Web Design
+        - Web Design
 collections_config:
   sites:
     icon: link
