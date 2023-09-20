@@ -5,7 +5,17 @@ _inputs:
     comment: The blog post or site was published on this day.
   layout:
     hidden: true
-
+  tags:
+    type: multiselect
+    options:
+      values:
+        - HTML
+        - CSS
+        - JavaScript
+        - Performance
+        - Accessibility
+        - Progressive Enhancement
+        - Responsive Web Design
 collections_config:
   sites:
     icon: link
