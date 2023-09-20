@@ -8,6 +8,7 @@ _inputs:
   tags:
     type: multiselect
     options:
+      allow_create: true
       values:
         - HTML
         - CSS
