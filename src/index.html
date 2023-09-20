@@ -17,50 +17,62 @@ video:
 		<p>A historical record of foundational web development blog posts. <a rel="noreferrer" href="https://www.youtube.com/watch?v=yXcxvBJuULU"><img src="https://v1.indieweb-avatar.11ty.dev/{{ video.url | url_encode }}/" alt="Favicon of {{ video.url }}" width="32" height="32" loading="lazy" class="favicon">Watch <em>From Zero to CMS in 2 Minutes with CloudCannon and Eleventy</em> (on YouTube)</a> to learn how this web site was made.</p>
 		<p>This collection of ×{{ collections.sites | size }} blog posts and web sites is ordered chronologically. Subscribe to the <a href="/feed.xml">RSS feed</a>.</p>
 	</div>
-{%- for site in collections.sites %}
-{%- if forloop.first %}
-	<dl>
-{%- endif %}
-		<dt>
-			<a href="{{ site.data.url }}" class="site-link">
-				{%- if site.data.favicon_override_image_path %}
-				{% embedFavicon site.data.favicon_override_image_path, site.data.title %}
-				{%- else -%}
-				<img src="https://v1.indieweb-avatar.11ty.dev/{{ site.data.url | url_encode }}/" alt="Favicon of {{ site.data.url }}" width="32" height="32" loading="lazy" class="site-favicon">
-				{%- endif -%}
-				<span>{{ site.data.title }}</span>
+	<filter-container>
+		<form>
+			<details>
+				<summary><strong>Filters</strong></summary>
+				<label><input name="filter-tag" type="radio" value="" checked data-filter-key="tags"> Show all <em>(×{{ collections.sites | size }})</em></label>
+				{%- assign taglist = collections | keys | sort %}
+				{%- for tag in taglist %}
+				<label><input name="filter-tag" type="radio" value="{{ tag | slugify }}" data-filter-key="tags"> {{ tag }} <em>(×{{ collections[tag] | size }})</em></label>
+				{%- endfor %}
+			</details>
+		</form>
+	{%- for site in collections.sites %}
+		{%- if forloop.first %}
+		<dl>
+		{%- endif %}
+			<dt data-filter-tags="{{ site.data.tags | toSlugList }}">
+				<a href="{{ site.data.url }}" class="site-link">
+					{%- if site.data.favicon_override_image_path %}
+					{% embedFavicon site.data.favicon_override_image_path, site.data.title %}
+					{%- else -%}
+					<img src="https://v1.indieweb-avatar.11ty.dev/{{ site.data.url | url_encode }}/" alt="Favicon of {{ site.data.url }}" width="32" height="32" loading="lazy" class="site-favicon">
+					{%- endif -%}
+					<span>{{ site.data.title }}</span>
+				</a>
+				<p class="site-metadata">
+					{%- if site.data.author %}<span>{{ site.data.author | normalize }}</span>{% endif %}
+					{%- if site.date %} (<time datetime="{{ site.date | toDateFormat }}">{{ site.date | toDateFormat }}</time>){% endif %}
+					<a href="cloudcannon:collections/{{ site.inputPath | replace: './', '' }}" class="cc-editor-link">Edit</a>
+				</p>
+			</dt>
+			<dd data-filter-tags="{{ site.data.tags | toSlugList }}" class="site-screenshot--skew">
+				{%- if not site.data.skip_screenshot %}
+				<a href="{{ site.data.url }}">{% embedScreenshot site.data.url, site.data.title, forloop.first %}</a>
+				{%- endif %}
+			</dd>
+		{%- assign showVideo = forloop.index | modulo: video.show_every %}
+		{%- if showVideo == 0 %}
+		</dl>
+		<div class="site-promo">
+			<a href="{{ video.url }}" class="site-promo-link callout">
+				<span class="site-link">
+					<img src="https://v1.indieweb-avatar.11ty.dev/{{ video.url | url_encode }}/" alt="Favicon of {{ video.url }}" width="32" height="32" loading="lazy" class="site-favicon">
+					<span>Learn how this was built: <em>{{ video.title }}</em></span>
+				</span>
+				{% embedScreenshot video.poster, video.title %}
 			</a>
-			<p class="site-metadata">
-				{%- if site.data.author %}<span>{{ site.data.author | normalize }}</span>{% endif %}
-				{%- if site.date %} (<time datetime="{{ site.date | toDateFormat }}">{{ site.date | toDateFormat }}</time>){% endif %}
-				<a href="cloudcannon:collections/{{ site.inputPath | replace: './', '' }}" class="cc-editor-link">Edit</a>
-			</p>
-		</dt>
-		<dd class="site-screenshot--skew">
-			{%- if not site.data.skip_screenshot %}
-			<a href="{{ site.data.url }}">{% embedScreenshot site.data.url, site.data.title, forloop.first %}</a>
-			{%- endif %}
-		</dd>
-{%- assign showVideo = forloop.index | modulo: video.show_every %}
-{%- if showVideo == 0 %}
-	</dl>
-	<div class="site-promo">
-		<a href="{{ video.url }}" class="site-promo-link callout">
-			<span class="site-link">
-				<img src="https://v1.indieweb-avatar.11ty.dev/{{ video.url | url_encode }}/" alt="Favicon of {{ video.url }}" width="32" height="32" loading="lazy" class="site-favicon">
-				<span>Learn how this was built: <em>{{ video.title }}</em></span>
-			</span>
-			{% embedScreenshot video.poster, video.title %}
-		</a>
-	</div>
-{%- if not forloop.last %}
-	<dl>
-{%- endif %}
-{%- endif %}
-{%- if forloop.last %}
-	</dl>
-{%- endif %}
-{%- endfor %}
+		</div>
+		{%- if not forloop.last %}
+		<dl>
+		{%- endif %}
+		{%- endif %}
+		{%- if forloop.last %}
+		</dl>
+		{%- endif %}
+	{%- endfor %}
+	</filter-container>
 </main>
 <footer class="callout">
 	<p class="editable">

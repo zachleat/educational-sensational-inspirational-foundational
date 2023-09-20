@@ -7,17 +7,33 @@ module.exports = function(eleventyConfig) {
 
 	eleventyConfig.addPassthroughCopy("./src/*.{css,png}");
 
-	// is-land loaded YouTube embed
 	eleventyConfig.addPassthroughCopy({
 		"node_modules/@11ty/is-land/is-land.js": "public/is-land.js",
+
+		// YouTube embed
 		"node_modules/lite-youtube-embed/src/lite-yt-embed.js": "public/lite-yt-embed.js",
-		"node_modules/lite-youtube-embed/src/lite-yt-embed.css": "public/lite-yt-embed.css"
+		"node_modules/lite-youtube-embed/src/lite-yt-embed.css": "public/lite-yt-embed.css",
+
+		// Filter-container
+		"node_modules/@zachleat/filter-container/filter-container.js": "public/filter-container.js",
 	});
 
 	eleventyConfig.addPlugin(pluginRss);
 
 	eleventyConfig.setLiquidOptions({
 		jsTruthy: true
+	});
+
+	eleventyConfig.addFilter("toSlugList", (subject) => {
+		return subject.filter(key => key !== "sites")
+			.map(key => eleventyConfig.getFilter("slugify")(key))
+			.join(",");
+	});
+
+	eleventyConfig.addFilter("keys", (subject) => {
+		return Object.keys(subject).filter(key => {
+			return key !== "all" && key !== "sites";
+		});
 	});
 
 	eleventyConfig.addFilter("normalize", (subject, delimiter) => {

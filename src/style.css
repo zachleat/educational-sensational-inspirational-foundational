@@ -211,3 +211,22 @@ lite-youtube[videoid] {
 .cms-editor-active .cc-editor-link:focus {
 	outline: 2px solid var(--color-cc-blue);
 }
+
+/* Filter container */
+filter-container form {
+	margin: 1em 0;
+	line-height: 2;
+}
+filter-container label {
+	display: block;
+}
+filter-container:not(:defined) form {
+	visibility: hidden;
+}
+
+.filter-tags--hide {
+  display: none;
+}
+filter-container:has(.filter-tags--hide) .site-promo {
+	display: none;
+}
