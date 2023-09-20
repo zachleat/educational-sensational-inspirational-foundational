@@ -6,4 +6,6 @@ author: Lara Hogan
 date: 2013-03-12T00:00:00Z
 skip_screenshot: false
 favicon_override_image_path: ''
+tags:
+  - Performance
 ---

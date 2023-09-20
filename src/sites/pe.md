@@ -1,6 +1,11 @@
 ---
+_schema: default
 url: https://alistapart.com/article/understandingprogressiveenhancement/
-author: Aaron Gustafson
 title: Understanding Progressive Enhancement
-date: "2008-10-07"
+author: Aaron Gustafson
+date: 2008-10-07T00:00:00Z
+skip_screenshot: false
+favicon_override_image_path: ''
+tags:
+  - Progressive Enhancement
 ---
