@@ -38,6 +38,18 @@ header {
 	max-width: 100%;
 	margin: auto auto var(--rhythm);
 }
+details {
+	padding: .5em;
+	background-color: var(--primary-light);
+	border-radius: .5em;
+}
+details:not([open]) {
+	width: min-content;
+}
+details summary {
+	white-space: nowrap;
+	padding: 0 .25em;
+}
 .callout {
 	display: block;
 	padding: 1em;
@@ -230,3 +242,4 @@ filter-container:not(:defined) form {
 filter-container:has(.filter-tags--hide) .site-promo {
 	display: none;
 }
+
