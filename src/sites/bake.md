@@ -6,4 +6,6 @@ author: Aaron Swartz
 date: 2002-07-09T00:00:00Z
 skip_screenshot: false
 favicon_override_image_path: /uploads/aaron-swartz-profile.jpg
+tags:
+  - Jamstack
 ---
