@@ -17,7 +17,7 @@ video:
 		<p>A historical record of foundational web development blog posts. <a rel="noreferrer" href="https://www.youtube.com/watch?v=yXcxvBJuULU"><img src="https://v1.indieweb-avatar.11ty.dev/{{ video.url | url_encode }}/" alt="Favicon of {{ video.url }}" width="32" height="32" loading="lazy" class="favicon">Watch <em>From Zero to CMS in 2 Minutes with CloudCannon and Eleventy</em> (on YouTube)</a> to learn how this web site was made.</p>
 		<p>This collection of ×{{ collections.sites | size }} blog posts and web sites is ordered chronologically. Subscribe to the <a href="/feed.xml">RSS feed</a>.</p>
 	</div>
-	<filter-container>
+	<filter-container oninit>
 		<form>
 			<details>
 				<summary><strong>Filters</strong></summary>
