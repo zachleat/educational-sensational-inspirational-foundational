@@ -5,6 +5,7 @@ title: 'How Smashing Magazine Manages Content: Migration From WordPress To JAMst
 author: Sarah Drasner
 date: 2020-01-28T00:00:00Z
 skip_screenshot: false
+use_opengraph: true
 favicon_override_image_path: ''
 tags:
   - Jamstack

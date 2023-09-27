@@ -47,8 +47,8 @@ module.exports = function(eleventyConfig) {
 		return date.getFullYear();
 	});
 
-	eleventyConfig.addShortcode("embedScreenshot", async function(url, title, isLCP) {
-		let remoteUrl = `https://v1.screenshot.11ty.dev/${encodeURIComponent(url)}/opengraph/`
+	async function remoteImage(url, title, isLCP = false, useOpenGraph = false) {
+		let remoteUrl = `https://v1.${useOpenGraph ? "opengraph" : "screenshot"}.11ty.dev/${encodeURIComponent(url)}/opengraph/`
 		let metadata = await Image(remoteUrl, {
 			widths: [400, 800],
 			formats: ["webp", "jpeg"],
@@ -67,7 +67,10 @@ module.exports = function(eleventyConfig) {
 
 		// You bet we throw an error on a missing alt (alt="" works okay)
 		return Image.generateHTML(metadata, imageAttributes);
-	});
+	}
+
+	eleventyConfig.addShortcode("embedScreenshot", (url, title, isLCP) => remoteImage(url, title, isLCP));
+	eleventyConfig.addShortcode("embedOpenGraph", (url, title, isLCP) => remoteImage(url, title, isLCP, true));
 
 	eleventyConfig.addShortcode("embedFavicon", async function(filepath, title) {
 		let metadata = await Image(path.join("./src/", filepath), {

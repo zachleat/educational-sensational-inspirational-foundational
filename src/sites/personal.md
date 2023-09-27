@@ -5,6 +5,7 @@ title: Into the Personal-Website-Verse
 author: Matthias Ott
 date: 2019-05-12T00:00:00Z
 skip_screenshot: false
+use_opengraph: true
 favicon_override_image_path: ''
 tags:
   - IndieWeb
