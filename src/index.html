@@ -5,7 +5,6 @@ video:
   url: https://www.youtube.com/watch?v=yXcxvBJuULU
   title: From Zero to CMS in 2 Minutes with CloudCannon and Eleventy
   poster: https://i.ytimg.com/vi/yXcxvBJuULU/maxresdefault.jpg
-  show_every: 18
 ---
 <header>
 	<h1 class="title editable">
@@ -58,8 +57,8 @@ video:
 				</a>
 				{%- endif %}
 			</dd>
-		{%- assign showVideo = forloop.index | modulo: video.show_every %}
-		{%- if showVideo == 0 %}
+		{%- assign showVideo = forloop.length | divided_by: 2 | floor %}
+		{%- if showVideo == forloop.index %}
 		</dl>
 		<div class="site-promo">
 			<a href="{{ video.url }}" class="site-promo-link callout">
