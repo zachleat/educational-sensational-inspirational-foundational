@@ -48,13 +48,17 @@ video:
 			</dt>
 			<dd data-filter-tags="{{ site.data.tags | toSlugList }}" class="site-screenshot--skew">
 				{%- if not site.data.skip_screenshot %}
-				<a href="{{ site.data.url }}">
-					{%- if site.data.use_opengraph %}
-						{%- embedOpenGraph site.data.url, site.data.title, forloop.first %}
-					{%- else %}
-						{%- embedScreenshot site.data.url, site.data.title, forloop.first %}
-					{%- endif %}
-				</a>
+				<is-land on:visible>
+					<browser-window flush mode="dark" shadow url="{{ site.data.url }}">
+						<a href="{{ site.data.url }}">
+							{%- if site.data.use_opengraph %}
+								{%- embedOpenGraph site.data.url, site.data.title, forloop.first %}
+							{%- else %}
+								{%- embedScreenshot site.data.url, site.data.title, forloop.first %}
+							{%- endif %}
+						</a>
+					</browser-window>
+				</is-land>
 				{%- endif %}
 			</dd>
 		{%- assign showVideo = forloop.length | divided_by: 2 | floor %}

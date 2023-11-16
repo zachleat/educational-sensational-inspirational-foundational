@@ -9,13 +9,10 @@ module.exports = function(eleventyConfig) {
 
 	eleventyConfig.addPassthroughCopy({
 		"node_modules/@11ty/is-land/is-land.js": "public/is-land.js",
-
-		// YouTube embed
 		"node_modules/lite-youtube-embed/src/lite-yt-embed.js": "public/lite-yt-embed.js",
 		"node_modules/lite-youtube-embed/src/lite-yt-embed.css": "public/lite-yt-embed.css",
-
-		// Filter-container
 		"node_modules/@zachleat/filter-container/filter-container.js": "public/filter-container.js",
+		"node_modules/@zachleat/browser-window/browser-window.js": "public/browser-window.js",
 	});
 
 	eleventyConfig.addPlugin(pluginRss);
