@@ -49,7 +49,7 @@ video:
 			<dd data-filter-tags="{{ site.data.tags | toSlugList }}" class="site-screenshot--skew">
 				{%- if not site.data.skip_screenshot %}
 				<is-land on:visible>
-					<browser-window flush mode="dark" shadow url="{{ site.data.url }}">
+					<browser-window flush shadow url="{{ site.data.url }}">
 						<a href="{{ site.data.url }}">
 							{%- if site.data.use_opengraph %}
 								{%- embedOpenGraph site.data.url, site.data.title, forloop.first %}

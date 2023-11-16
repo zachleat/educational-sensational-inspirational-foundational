@@ -129,7 +129,6 @@ dd {
 }
 
 browser-window {
-	--bw-border: none;
 	display: block;
 	font-size: 0.875em; /* 14px /16 */
 }
