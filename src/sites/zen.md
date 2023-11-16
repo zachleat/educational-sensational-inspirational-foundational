@@ -5,7 +5,8 @@ title: CSS Zen Garden
 author: Dave Shea
 date: 2003-01-01T00:00:00Z
 skip_screenshot: false
-favicon_override_image_path: ''
+use_opengraph: false
+favicon_override_image_path: /uploads/zengardenicon.png
 tags:
   - CSS
 ---
