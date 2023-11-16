@@ -104,19 +104,28 @@ p:last-child {
 
 dl {
 	display: grid;
-	gap: 1em var(--rhythm);
+	gap: 1em clamp(2em, 3vw, var(--rhythm));
 }
 @media (min-width: 37.5em) { /* 600px */
 	dl {
-		grid-template-columns: 45% auto;
+		grid-template-columns: 40% auto;
 	}
 }
 dl {
 	margin: var(--rhythm) 0;
 }
+dt {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
 dd {
 	margin: 0 0 var(--rhythm);
-	padding-bottom: var(--rhythm);
+}
+@media (min-width: 37.5em) { /* 600px */
+	dd {
+		margin: var(--rhythm) 0;
+	}
 }
 
 browser-window {
@@ -133,6 +142,7 @@ browser-window {
 	align-items: flex-start;
 	font-size: 1.5em;
 	font-weight: 500;
+	text-wrap: balance;
 }
 .favicon {
 	vertical-align: text-bottom;
