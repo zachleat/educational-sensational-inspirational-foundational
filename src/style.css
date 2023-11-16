@@ -132,6 +132,9 @@ browser-window {
 	display: block;
 	font-size: 0.875em; /* 14px /16 */
 }
+browser-window[mode="dark"] {
+	--bw-border: none;
+}
 
 .site-link {
 	font-family: Poppins, system-ui, sans-serif;
