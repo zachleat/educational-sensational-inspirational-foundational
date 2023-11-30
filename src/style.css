@@ -3,6 +3,7 @@
 	--primary-light: #c3d4fa;
 	--gutter: 1rem;
 	--rhythm: 2em;
+	--shadow-hsl: 0deg 0% 75%;
 }
 @media (min-width: 37.5em) { /* 600px */
 	:root {
@@ -42,10 +43,17 @@ details {
 	padding: .5em;
 	background-color: var(--primary-light);
 	border-radius: .5em;
-}
-details:not([open]) {
 	width: min-content;
 }
+details[open] {
+	min-width: 18em;
+}
+@media (max-width: 37.4375em) {
+	details[open] {
+		width: auto;
+	}
+}
+
 details summary {
 	white-space: nowrap;
 	padding: 0 .25em;
@@ -178,7 +186,7 @@ browser-window[mode="dark"] {
 }
 @media (min-width: 37.5em) { /* 600px */
 	.site-screenshot--skew browser-window {
-		transform: rotateX(10deg) rotateY(-30deg) rotateZ(10deg);
+		transform: skewX(-4deg);
 		perspective-origin: 25% 75%;
 	}
 }
@@ -255,6 +263,13 @@ lite-youtube[videoid] {
 filter-container form {
 	margin: 1em 0;
 	line-height: 2;
+}
+@media (min-width: 37.5em) and (min-height: 50em) {
+	filter-container form {
+		position: sticky;
+		top: 1em;
+		z-index: 1;
+	}
 }
 filter-container label {
 	display: block;
