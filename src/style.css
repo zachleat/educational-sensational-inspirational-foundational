@@ -178,7 +178,7 @@ browser-window[mode="dark"] {
 }
 @media (min-width: 37.5em) { /* 600px */
 	.site-screenshot--skew browser-window {
-		transform: rotate3d(1, 2, 0, -25deg);
+		transform: rotateX(10deg) rotateY(-30deg) rotateZ(10deg);
 		perspective-origin: 25% 75%;
 	}
 }
