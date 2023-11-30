@@ -87,5 +87,9 @@ video:
 	<p class="editable">
 		<em>This web site was created by <a href="https://www.zachleat.com/">Zach Leatherman</a> and built with <a href="https://www.11ty.dev/">Eleventy</a> and <a href="https://cloudcannon.com/">CloudCannon</a>. Check out the <a href="https://github.com/zachleat/educational-sensational-inspirational-foundational">source code for this project on GitHub</a> or watch <a href="https://www.youtube.com/watch?v=yXcxvBJuULU">the making-of video on YouTube</a>. Feel free to head over to <a href="https://fediverse.zachleat.com/@zachleat/110855134082623101">the Mastodon post that started it all</a>.</em>
 	</p>
-	{% embedYouTube "yXcxvBJuULU" %}
+	<is-land on:visible>
+		<browser-window flush shadow mode="dark" url="https://www.youtube.com/watch?v=yXcxvBJuULU">
+		{% embedYouTube "yXcxvBJuULU" %}
+		</browser-window>
+	</is-land>
 </footer>
